@@ -1,0 +1,19 @@
+<div class="container" id="container_productos">
+    <div class="row row-cols-1 row-cols-md-4 g-3">
+        
+        <div class="col" *ngFor="let producto of productos">
+          <div class="card" id="carta_producto" style="border-radius: 15px;">
+            <img src="{{producto.img}}" class="card-img-top" alt="producto" id="img_productos">
+            <div class="card-body">
+              <h5 class="card-title">{{producto.marca}}</h5>
+              <p class="card-text">{{producto.descripcion}}</p>
+              <p class="card-text" id="precio">$ {{producto.precio}}</p>
+
+              <button class="btn btn-primary" id="addToCart">Agregar al carrito</button>
+           
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,26 @@
+#container_productos {
+    margin-bottom: 50px;
+}
+#carta_producto {
+    background-color: #fff;
+}
+
+#img_productos {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#addToCart {
+    border-radius: 30px;
+    width: 100%;
+    border: none;
+    background-color: var(--second-color);
+    transition: all 0.2s;
+}
+
+#addToCart:hover{
+    background-color: var(--third-color);
+}

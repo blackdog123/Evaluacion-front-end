@@ -1,0 +1,19 @@
+#barra_menu {
+    background: linear-gradient(120deg, var(--first-color) 10%, var(--second-color) 70%);
+    height: 80px;
+    margin-bottom: 50px;
+
+} 
+
+.nav-link {
+    margin: 10px;
+    border-radius: 10px;
+    color: var(--white-color);
+    transition: all 0.2s;
+    
+}
+
+.nav-link:hover {
+    transform: scale(105%);
+    background-color: rgba(255, 255, 255, 0.1);
+}

@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+
+:root {
+    --first-color: #2A2438;
+    --second-color: #352F44;
+    --third-color: #8FC75C;
+    --white-color: #DBD8E3;
+}
+
+body {
+    background: var(--white-color);
+    font-family: 'Montserrat', sans-serif;
+}
+
+
