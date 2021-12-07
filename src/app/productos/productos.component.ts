@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-productos',
@@ -18,7 +18,24 @@ export class ProductosComponent implements OnInit {
 
   constructor() { }
 
+  dataSource: any;
+
   ngOnInit(): void {
+    this.dataSource = new MatTableDataSource(this.productos);
+
   }
 
+  columnas: string[] = ['marca','descripcion','precio', 'img'];
+
+  
+  filtrar(event: Event) {
+    const filtro = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filtro.trim()
+    }
 }
+
+
+
+
+
+

@@ -6,11 +6,9 @@
 }
 
 #img_productos {
-    width: 200px;
-    height: 200px;
-    border-radius: 15px;
-    margin: auto;
-    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
 }
 
 #addToCart {
@@ -23,4 +21,14 @@
 
 #addToCart:hover{
     background-color: var(--third-color);
+}
+
+
+
+/* styles */
+
+#tabla_productos {
+    width: 100%;
+    background-color: #eee;
+    margin-bottom: 300px;
 }
