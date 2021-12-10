@@ -1,3 +1,4 @@
+import { BlockScrollStrategy } from '@angular/cdk/overlay';
 import { Component, OnInit} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
@@ -63,16 +64,48 @@ export class ProductosComponent implements OnInit {
   }
 
   agregar(){
-    
+    let flag = true;
+
+    if(this.prod.codigo == 0 || isNaN(this.prod.codigo) ){
+      alert("codigo invalido, debe contener solo numeros");
+      flag = false;
+    } 
+    if( this.prod.marca.length < 5 ||  this.prod.marca==null){
+      alert("la marca es invalida, debe contener al menos 5 caracteres");
+      flag = false;
+    } 
+    if( this.prod.descripcion.length <= 10 || this.prod.descripcion==null){
+      alert("la descripcion es invalida, debe contener al menos 10 caracteres");
+      flag = false;
+    } 
+    if(this.prod.precio == 0 || isNaN(this.prod.precio)){
+      alert("el precio es invalido, debe contener solo números");
+      flag = false;
+    }
+
     for(let i=0; i<this.productos.length;i++){
       if(this.productos[i].codigo == this.prod.codigo){
         alert("Ya se encuentra un producto con ese código");
-        return;
+        flag = false;
       }
+      
     }
-    this.productos.push(this.prod);
+
+    if(flag == false ){
+      return;
+    }else{
+      this.productos.push(this.prod);
+      
+      this.prod ={
+        codigo:0,
+        marca:"",
+        descripcion:"",  
+        precio:0
+      }
+
+      alert("Producto agregado");
+    }
     
-    alert("Producto agregado");
   }
 
   filterDatos = undefined;
