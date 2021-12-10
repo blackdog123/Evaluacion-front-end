@@ -50,11 +50,12 @@
   <button (click)="agregar()" class="btn btn-primary">Agregar</button>
   <button (click)="modificar()" class="btn btn-secondary">Modificar</button>
 </div>
-
+<br><br>
 
 <!--Tabla de carrito-->
-<h3>CARRITO</h3>
-<table class="table">
+<h2>CARRITO</h2>
+
+<table class="table" *ngIf="hayproductos(); else sinProductos">
   <thead>
     <th>Codigo</th>
     <th>Marca</th>
@@ -74,6 +75,8 @@
     </tr>
   </tbody>
 </table>
+
+<ng-template #sinProductos><p>No hay productos</p></ng-template>
 
 
 

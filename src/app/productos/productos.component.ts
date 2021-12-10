@@ -35,7 +35,9 @@ export class ProductosComponent implements OnInit {
   ngOnInit(): void {
   }
 
- 
+  hayproductos(){
+    return this.carrito.length != 0;
+  }
  
   eliminar(codigo:number) {
     for(let i = 0; i < this.productos.length; i++) {
