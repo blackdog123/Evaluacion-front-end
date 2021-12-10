@@ -1,0 +1,52 @@
+<!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formContacto" (ngSubmit)="submit()">
+                <label for="marca" class="form-label">Marca</label>
+                <input type="text" name="marca" formControlName="marca" class="form-control" placeholder="Ingresar Marca" required>
+                <span *ngIf="this.formContacto.controls['marca'].errors?.['required']">
+                    Debe ingresar una marca
+                </span>
+                <span *ngIf="this.formContacto.controls['marca'].errors?.['minlength']">
+                    Debe tener mínimo 5 caracteres
+                </span>
+                <br>
+                <label for="descripcion" class="form-label">Descripcion</label>
+                <textarea name="descripcion" formControlName="descripcion" rows="5" cols="15" class="form-control" placeholder="Ingresar Descripción del producto"  required></textarea>
+                <span *ngIf="this.formContacto.controls['descripcion'].errors?.['required']">
+                    Debe ingresar una descripcion
+                </span>
+                 <span *ngIf="this.formContacto.controls['descripcion'].errors?.['maxlength']"> 
+                    La descripción debe tener 100 caracteres como máximo
+                </span>
+                <br>
+                <label for="precio">Precio</label>
+                <input type="number" name="precio" formControlName="precio" class="form-control" placeholder="Ingresar precio"  required>
+                <span *ngIf="this.formContacto.controls['precio'].errors?.['required']"> 
+                    Debe ingresar un precio
+                </span>
+                <span *ngIf="this.formContacto.controls['precio'].errors?.['min']"> 
+                    El precio debe ser mayor que 0
+                </span>
+                <br>
+                <button type="submit" class="btn btn-primary" id="btn_save">Agregar producto</button>
+            </form>
+            
+            <div>{{mostrar}}</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
