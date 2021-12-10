@@ -11,7 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class ProductosComponent implements OnInit {
 
-  prod ={
+  prod = {
     codigo:0,
     marca:"",
     descripcion:"",  
@@ -26,6 +26,8 @@ export class ProductosComponent implements OnInit {
                           {codigo:6, marca:'Sony', descripcion:'Play Station 5', precio: 680000, img:'./assets/images/play5.jpg'},
                         ];
 
+  carrito:Array<any> = [];
+
 
   constructor() { }
 
@@ -33,6 +35,7 @@ export class ProductosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+ 
  
   eliminar(codigo:number) {
     for(let i = 0; i < this.productos.length; i++) {
@@ -42,6 +45,13 @@ export class ProductosComponent implements OnInit {
     }
   }
 
+  eliminarCarrito(codigo:number) {
+    for(let i = 0; i < this.carrito.length; i++) {
+      if (this.carrito[i].codigo==codigo) {
+        this.carrito.splice(i,1)
+      }
+    }
+  }
   seleccionar(prod:{marca:string;descripcion:string;precio:number; codigo:number}){
     this.prod.marca = prod.marca;
     this.prod.descripcion = prod.descripcion;
@@ -49,6 +59,17 @@ export class ProductosComponent implements OnInit {
     this.prod.codigo = prod.codigo;
   }
 
+  agregarCarro(prod:{marca:string;descripcion:string;precio:number; codigo:number}){
+    
+    this.prod.marca = prod.marca;
+    this.prod.descripcion = prod.descripcion;
+    this.prod.precio = prod.precio;
+    this.prod.codigo = prod.codigo;
+
+    this.carrito.push(prod);
+
+
+  }
 
   modificar(){
     for(let i=0; i<this.productos.length; i++){

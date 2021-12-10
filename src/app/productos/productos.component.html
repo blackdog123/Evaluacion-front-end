@@ -14,6 +14,8 @@
     <th>Precio</th>
     <th>Eliminar</th>
     <th>Seleccionar</th>
+    <th>Agregar al carro</th>
+
   </thead>
   <tbody>
     <tr *ngFor="let producto of productos  ">
@@ -24,6 +26,8 @@
       <td>{{producto.precio}}</td>
       <td><button (click)="eliminar(producto.codigo)" class="btn btn-primary">Eliminar</button></td>
       <td><button (click)="seleccionar(producto)" class="btn btn-secondary">Seleccionar</button></td>
+      <td><button (click)="agregarCarro(producto)" class="btn btn-secondary"><mat-icon>shopping_cart</mat-icon></button></td>
+
     </tr>
   </tbody>
 </table>
@@ -46,6 +50,31 @@
   <button (click)="agregar()" class="btn btn-primary">Agregar</button>
   <button (click)="modificar()" class="btn btn-secondary">Modificar</button>
 </div>
+
+
+<!--Tabla de carrito-->
+<h3>CARRITO</h3>
+<table class="table">
+  <thead>
+    <th>Codigo</th>
+    <th>Marca</th>
+    <th>Descripcion</th>
+    <th>Precio</th>
+    <th>Eliminar</th>
+
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of carrito  ">
+      <!--| filter: filterDatos-->
+      <td>{{producto.codigo}}</td>
+      <td>{{producto.marca}}</td>
+      <td>{{producto.descripcion}}</td>
+      <td>{{producto.precio}}</td>
+      <td><button (click)="eliminarCarrito(producto.codigo)" class="btn btn-primary">Eliminar</button></td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 </div>

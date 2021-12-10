@@ -13,6 +13,8 @@ import { ValidacionComponent } from './validacion/validacion.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
 import { BuscarComponent } from './buscar/buscar.component';
+import  {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -31,8 +33,8 @@ import { BuscarComponent } from './buscar/buscar.component';
     MatTableModule,
     MatInputModule,
     ReactiveFormsModule,
-    FormsModule
-  
+    FormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
