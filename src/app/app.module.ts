@@ -9,21 +9,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import  {MatTableModule} from '@angular/material/table';
 import { MatInputModule} from '@angular/material/input';
 import { FooterComponent } from './footer/footer.component';
-
+import { ValidacionComponent } from './validacion/validacion.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     ProductosComponent,
-    FooterComponent
+    FooterComponent,
+    ValidacionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   
   ],
   providers: [],
