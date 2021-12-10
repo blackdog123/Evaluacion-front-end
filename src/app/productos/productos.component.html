@@ -52,32 +52,48 @@
 </div>
 <br><br>
 
-<!--Tabla de carrito-->
-<h2>CARRITO</h2>
+<!--MODAL CARRITO-->
+<div class="modal" tabindex="-1" id="exampleModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!--Tabla de carrito-->
+        <h2>CARRITO</h2>
 
-<table class="table" *ngIf="hayproductos(); else sinProductos">
-  <thead>
-    <th>Codigo</th>
-    <th>Marca</th>
-    <th>Descripcion</th>
-    <th>Precio</th>
-    <th>Eliminar</th>
+        <table class="table" *ngIf="hayproductos(); else sinProductos">
+          <thead>
+            <th>Codigo</th>
+            <th>Marca</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Eliminar</th>
 
-  </thead>
-  <tbody>
-    <tr *ngFor="let producto of carrito  ">
-      <!--| filter: filterDatos-->
-      <td>{{producto.codigo}}</td>
-      <td>{{producto.marca}}</td>
-      <td>{{producto.descripcion}}</td>
-      <td>{{producto.precio}}</td>
-      <td><button (click)="eliminarCarrito(producto.codigo)" class="btn btn-primary">Eliminar</button></td>
-    </tr>
-  </tbody>
-</table>
-
-<ng-template #sinProductos><p>No hay productos</p></ng-template>
-
+          </thead>
+          <tbody>
+            <tr *ngFor="let producto of carrito  ">
+              <!--| filter: filterDatos-->
+              <td>{{producto.codigo}}</td>
+              <td>{{producto.marca}}</td>
+              <td>{{producto.descripcion}}</td>
+              <td>{{producto.precio}}</td>
+              <td><button (click)="eliminarCarrito(producto.codigo)" class="btn btn-primary">Eliminar</button></td>
+            </tr>
+          </tbody>
+        </table><!--Tabla de carrito-->
+        
+        <ng-template #sinProductos><p>No hay productos</p></ng-template>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Comprar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </div>
