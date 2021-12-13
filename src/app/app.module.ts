@@ -10,7 +10,12 @@ import  {MatTableModule} from '@angular/material/table';
 import { MatInputModule} from '@angular/material/input';
 import { FooterComponent } from './footer/footer.component';
 import { ValidacionComponent } from './validacion/validacion.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './filter.pipe';
+import { BuscarComponent } from './buscar/buscar.component';
+import  {MatIconModule} from '@angular/material/icon';
+import { ComprarComponent } from './comprar/comprar.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +23,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MenuComponent,
     ProductosComponent,
     FooterComponent,
-    ValidacionComponent
+    ValidacionComponent,
+    FilterPipe,
+    BuscarComponent,
+    ComprarComponent
   ],
   imports: [
     BrowserModule,
@@ -26,8 +34,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatTableModule,
     MatInputModule,
-    ReactiveFormsModule
-  
+    ReactiveFormsModule,
+    FormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

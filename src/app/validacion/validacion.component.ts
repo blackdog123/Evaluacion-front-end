@@ -16,6 +16,12 @@ export class ValidacionComponent implements OnInit {
   precio: new FormControl('',[Validators.required,Validators.min(0)])
   });
   
+  enviado = new FormGroup({
+    marca: new FormControl(''),
+    descripcion: new FormControl(''),
+    precio: new FormControl('')
+  })
+
   submit(){
   if(this.formContacto.valid){
 

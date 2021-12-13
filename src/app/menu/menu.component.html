@@ -7,14 +7,21 @@
 
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link" href="#!">Home</a>
+                <a class="nav-link" [routerLink]="['/productos']" routerLinkActive="router-link-active" >Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#!">Productos</a>
+                <a class="nav-link" [routerLink]="['/productos']" routerLinkActive="router-link-active" >Productos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#!">Contacto</a>
+                <a class="nav-link" [routerLink]="['/buscar-producto']" routerLinkActive="router-link-active" >Buscar</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/productos']" routerLinkActive="router-link-active" >Contacto</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><mat-icon>shopping_cart</mat-icon></a>
+            </li>
+
         </ul>
 
     </div>
