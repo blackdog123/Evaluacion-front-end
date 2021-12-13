@@ -1,0 +1,42 @@
+
+    #all_content {
+        margin-top: 100px;
+    }
+
+    #titulo {
+        color: var(--first-color);
+    }
+
+    #subTitulo {
+        color: var(--first-color);
+    }
+
+    #formulario input {
+        box-shadow: none;
+        background-color: #fff;
+        padding: 10px;
+    }
+
+    #formulario input:focus {
+        border-color: var(--third-color);
+    }
+
+    #btn_registro {
+        border-radius: 30px;
+        height: 45px;
+        border: none;
+        background-color: var(--third-color);
+        box-shadow: none;
+    }
+
+    #btn_registro:hover {
+        background-color: #78B043;
+    }
+
+    #to_login {
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    #to_login:hover {
+        color: #78B043;
+    }

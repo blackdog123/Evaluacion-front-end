@@ -15,6 +15,8 @@ import { FilterPipe } from './filter.pipe';
 import { BuscarComponent } from './buscar/buscar.component';
 import  {MatIconModule} from '@angular/material/icon';
 import { ComprarComponent } from './comprar/comprar.component';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { ComprarComponent } from './comprar/comprar.component';
     ValidacionComponent,
     FilterPipe,
     BuscarComponent,
-    ComprarComponent
+    ComprarComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,100 @@
+/* login estilos*/
+#login_img {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 300px;
+    height: 200px;
+    
+    animation-name: shoping;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    
+}
+    
+@keyframes shoping {
+    0% {
+      transform: rotate(5deg);
+    }
+    
+    50% {
+      transform: rotate(-5deg);
+    }
+    
+    100% {
+      transform: rotate(5deg);
+    }
+} 
+      
+
+#login_form {
+    max-width: 500px;
+    margin: auto;
+    padding: 12px;
+    margin-bottom: 150px;
+}
+
+#float_labels {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+#login_form input {
+    border: none;
+    box-shadow: none;
+    border-radius: 0%;
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+    color: var(--first-color);
+
+}
+
+#login_form input:hover {
+    background-color: #fff;
+    border-color: var(--third-color);
+}
+
+#login_form input:focus {
+    background-color: #fff;
+    border-color: var(--third-color);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+#btn_login {
+    width: 100%;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    box-shadow: none;
+    background-color: var(--first-color);
+    transition: all 0.3s;
+}
+
+#btn_login:hover {
+    background-color: var(--third-color);
+}
+
+.box_links {
+    max-width: 500px;
+    margin: auto;
+    padding: 12px;
+}
+
+
+#links {
+    color: rgba(0, 0, 0, 0.5);
+    margin-left: 5px;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+#links:hover {
+    color: var(--third-color);
+} 
+
+#links_tittles {
+    color: var(--first-color);
+}
+
+
+  
