@@ -17,12 +17,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion'
 
-import { BuscarComponent } from './buscar/buscar.component';
 import  {MatIconModule} from '@angular/material/icon';
-import { ComprarComponent } from './comprar/comprar.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 
