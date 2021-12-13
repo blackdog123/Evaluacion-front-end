@@ -10,6 +10,10 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
+  verproductos = true; 
+  vercompra = false; 
+  totalPagar=0;
+  totalProductos=0;
 
   prod = {
     codigo:0,
@@ -132,11 +136,72 @@ export class ProductosComponent implements OnInit {
   }
 
   filterDatos = undefined;
+  ////////////////////COMPRA
+  panelOpenState = false;
 
+  mostrar="";
+
+  formDireccion = new FormGroup({
+    pais: new FormControl('',[Validators.required,Validators.maxLength(100),Validators.minLength(1)]),
+    calle: new FormControl('',[Validators.required,Validators.maxLength(100),Validators.minLength(1)]),
+    ciudad: new FormControl('',[Validators.required,Validators.maxLength(100),Validators.minLength(1)]),
+    region: new FormControl('',[Validators.required,Validators.maxLength(100),Validators.minLength(1)]),
+    codigoPostal: new FormControl('',[Validators.required,Validators.min(0),Validators.minLength(1)])
+  });
+
+  formPago = new FormGroup({
+    tipoTarjeta: new FormControl('',[Validators.required,Validators.maxLength(100),Validators.minLength(1)]),
+    nombre: new FormControl('',[Validators.required,Validators.maxLength(100),Validators.minLength(1)]),
+    numeroTarjeta: new FormControl('',[Validators.required,Validators.maxLength(100),Validators.minLength(1)]),
+    codigoSeguridad: new FormControl('',[Validators.required,Validators.maxLength(100),Validators.minLength(1)]),
+    mesExpiracion: new FormControl('',[Validators.required,Validators.maxLength(100),Validators.minLength(1)]),
+    anioExpiracion: new FormControl('',[Validators.required,Validators.maxLength(100),Validators.minLength(1)]),
+  });
+
+  submitDireccion(){
+    let flag=true;
+    
+    if( this.formDireccion.value.pais.length < 1 ||  this.formDireccion.value.pais==null || this.formDireccion.value.pais.length > 100){
+      alert("el pais es invalida, debe contener entre 1 y 100 caracteres");
+      flag = false;
+    } 
+    if( this.formDireccion.value.calle.length < 1 ||  this.formDireccion.value.calle==null || this.formDireccion.value.calle.length > 100){
+      alert("la calle es invalida, debe contener entre 1 y 100 caracteres");
+      flag = false;
+    } 
+    if( this.formDireccion.value.ciudad.length < 1 ||  this.formDireccion.value.ciudad==null || this.formDireccion.value.ciudad.length > 100){
+      alert("la ciudad es invalida, debe contener entre 1 y 100 caracteres");
+      flag = false;
+    } 
+    if( this.formDireccion.value.region.length < 1 ||  this.formDireccion.value.region==null || this.formDireccion.value.region.length > 100){
+      alert("la region es invalida, debe contener entre 1 y 100 caracteres");
+      flag = false;
+    } 
+    
+    if(this.formDireccion.value.codigoPostal < 0 || isNaN(this.formDireccion.value.codigoPostal) ){
+      alert("codigo invalido, debe contener solo numeros");
+      flag = false;
+    } 
+
+    if(flag == false ){
+      return;
+    }else{
+      alert("Los datos de dirección se guardaron correctamente")
+    }
+  }
+
+  submitPago(){
+    alert("Los datos de pago se guardaron correctamente")
+
+  }
+  comprar(){
+    this.verproductos = false;
+    this.vercompra=true;
+    this.totalProductos=this.carrito.length;
+    for(let i=0 ; i < this.carrito.length ; i++ ){
+    
+      this.totalPagar= this.totalPagar + this.carrito[i].precio;
+    }
+
+  }
 }
-
-
-
-
-
-

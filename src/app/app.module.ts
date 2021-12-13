@@ -5,16 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProductosComponent } from './productos/productos.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import  {MatTableModule} from '@angular/material/table';
-import { MatInputModule} from '@angular/material/input';
-import { FooterComponent } from './footer/footer.component';
-import { ValidacionComponent } from './validacion/validacion.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FilterPipe } from './filter.pipe';
-import { BuscarComponent } from './buscar/buscar.component';
-import  {MatIconModule} from '@angular/material/icon';
 import { ComprarComponent } from './comprar/comprar.component';
+import { FooterComponent } from './footer/footer.component';
+import { BuscarComponent } from './buscar/buscar.component';
+import { ValidacionComponent } from './validacion/validacion.component';
+
+import { FilterPipe } from './filter.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion'
 
 
 @NgModule({
@@ -36,7 +39,8 @@ import { ComprarComponent } from './comprar/comprar.component';
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

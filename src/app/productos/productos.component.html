@@ -1,4 +1,4 @@
-<div class="container" id="container_productos">
+<div class="container" id="container_productos"  *ngIf="verproductos">
 
   <H2>Mantenedor de Productos</H2>
 
@@ -90,13 +90,168 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Comprar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="comprar()">Comprar</button>
       </div>
     </div>
   </div>
 </div>
 
-<app-comprar></app-comprar>
 
+</div>
+<!--
+<app-comprar></app-comprar>
+-->
+
+<div class="container" *ngIf="vercompra">
+  <!--Formulario dirección del cliente-->
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>PRODUCTOS EN CARRITO</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <!--Tabla de carrito-->
+        <table class="table" *ngIf="hayproductos(); else sinProductos">
+          <thead>
+            <th>Codigo</th>
+            <th>Marca</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let producto of carrito  ">
+              <!--| filter: filterDatos-->
+              <td>{{producto.codigo}}</td>
+              <td>{{producto.marca}}</td>
+              <td>{{producto.descripcion}}</td>
+              <td>{{producto.precio}}</td>
+            </tr>
+          </tbody>
+        </table><!--Tabla de carrito-->
+        
+        <b>
+          CANTIDAD DE PRODUCTOS: {{totalProductos}} <br>
+          TOTAL A PAGAR: $ {{totalPagar}}
+        </b>
+        <ng-template #sinProductos><p>No hay productos</p></ng-template>
+    
+     </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b> DATOS DE DIRECCIÓN</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <!-- <h2>Formulario de Dirección</h2> -->
+        <form [formGroup]="formDireccion" (ngSubmit)="submitDireccion()">
+            <label for="pais" class="form-label">País</label>
+            <input type="text" name="pais" formControlName="pai" class="form-control" required>
+            <span style="color: red;" *ngIf="this.formDireccion.controls['pais'].errors?.['required']">
+                Debe ingresar un pais
+            </span>
+            <br>
+            <label for="calle" class="form-label">Calle</label>
+            <input type="text" name="calle" formControlName="calle" class="form-control" required>
+            <span style="color: red;" *ngIf="this.formDireccion.controls['calle'].errors?.['required']">
+                Debe ingresar una calle
+            </span>
+            <span style="color: red;" *ngIf="this.formDireccion.controls['calle'].errors?.['maxlength']">
+                La descripción debe tener 100 caracteres como máximo
+            </span>
+            <br>
+            <label for="ciudad" class="form-label">Ciudad</label>
+            <input type="text" name="ciudad" formControlName="ciudad" class="form-control" required>
+            <span style="color: red;" *ngIf="this.formDireccion.controls['ciudad'].errors?.['required']">
+                Debe ingresar una ciudad
+            </span>
+            <br>
+      
+            <label for="region" class="form-label">Región</label>
+            <input type="text" name="region" formControlName="region" class="form-control" required>
+            <span style="color: red;" *ngIf="this.formDireccion.controls['region'].errors?.['required']">
+                Debe ingresar una region
+            </span>
+            <br>
+      
+            <label for="codigoPostal">Código Postal</label>
+            <input type="number" name="codigoPostal" formControlName="codigoPostal" class="form-control" required>
+            <span style="color: red;" *ngIf="this.formDireccion.controls['codigoPostal'].errors?.['required']">
+                Debe ingresar un codigoPostal
+            </span>
+            <br>
+            <button type="submit" class="btn btn-primary" (closed)="panelOpenState = false">Guardar direccion</button>
+        </form>
+      
+        <div>{{mostrar}}</div>
+        <br><br>
+        </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b> DATOS DE PAGOS</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <!--Formulario de pago-->
+      <!-- <h2>Formulario de pago</h2> -->
+      <form [formGroup]="formPago" (ngSubmit)="submitPago()">
+          <label for="tipoTarjeta" class="form-label">Tipo Tarjeta</label>
+          <input type="text" name="tipoTarjeta" formControlName="tipoTarjeta" class="form-control" required>
+          <span style="color: red;" *ngIf="this.formPago.controls['tipoTarjeta'].errors?.['required']">
+              Debe ingresar un tipo de tarjeta
+          </span>
+          <br>
+          <label for="nombre" class="form-label">Nombre y Apellido cliente</label>
+          <input type="text" name="nombre" formControlName="nombre" class="form-control" required>
+          <span style="color: red;" *ngIf="this.formPago.controls['nombre'].errors?.['required']">
+              Debe ingresar un nombre
+          </span>
+          <span style="color: red;" *ngIf="this.formPago.controls['nombre'].errors?.['maxlength']">
+              El nombre debe tener 100 caracteres como máximo
+          </span>
+          <br>
+          <label for="numeroTarjeta" class="form-label">Numero Tarjeta</label>
+          <input type="number" name="numeroTarjeta" formControlName="numeroTarjeta" class="form-control" required>
+          <span style="color: red;" *ngIf="this.formPago.controls['numeroTarjeta'].errors?.['required']">
+              Debe ingresar un numero de tarjeta
+          </span>
+          <br>
+
+          <label for="codigoSeguridad" class="form-label">Codigo Seguridad</label>
+          <input type="number" name="codigoSeguridad" formControlName="codigoSeguridad" class="form-control" required>
+          <span style="color: red;" *ngIf="this.formPago.controls['codigoSeguridad'].errors?.['required']">
+              Debe ingresar un codigo de seguridad
+          </span>
+          <br>
+
+          <label for="mesExpiracion" class="form-label">Mes expiración</label>
+          <input type="number" name="mesExpiracion" formControlName="mesExpiracion" class="form-control" required>
+          <span style="color: red;" *ngIf="this.formPago.controls['mesExpiracion'].errors?.['required']">
+              Debe ingresar un codigoPostal
+          </span>
+          <br>
+          <label for="anioExpiracion" class="form-label">Año expiración</label>
+          <input type="number" name="anioExpiracion" formControlName="anioExpiracion" class="form-control" required>
+          <span style="color: red;" *ngIf="this.formPago.controls['anioExpiracion'].errors?.['required']">
+              Debe ingresar un año de expiracion
+          </span>
+          <br>
+          <button type="submit" class="btn btn-primary" (closed)="panelOpenState = false">Guardar datos de pago</button>
+      </form>
+
+      <div>{{mostrar}}</div>     
+      </mat-expansion-panel>
+  </mat-accordion>
+<br>
+  <button class="btn btn-primary" >FINALIZAR COMPRA</button>
+<br>
+<br>
+
+   
 </div>
 <router-outlet></router-outlet>
