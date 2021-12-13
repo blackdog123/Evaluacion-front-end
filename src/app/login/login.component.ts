@@ -22,15 +22,15 @@ export class LoginComponent implements OnInit {
   login() {
     let users = [
       {
-        username: "admin",
+        username: "a@a.cl",
         password: "123"
       },
       {
-        username: "user",
+        username: "b@b.cl",
         password: "123"
       },
       {
-        username: "user1",
+        username: "c@c.cl",
         password: "123"
       }
     ];
