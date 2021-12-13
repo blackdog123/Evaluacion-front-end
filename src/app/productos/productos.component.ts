@@ -46,7 +46,7 @@ export class ProductosComponent implements OnInit {
   eliminar(codigo:number) {
     for(let i = 0; i < this.productos.length; i++) {
       if (this.productos[i].codigo==codigo) {
-        this.productos.splice(i,1)
+        this.productos.splice(i, 1);
       }
     }
   }
@@ -54,10 +54,12 @@ export class ProductosComponent implements OnInit {
   eliminarCarrito(codigo:number) {
     for(let i = 0; i < this.carrito.length; i++) {
       if (this.carrito[i].codigo==codigo) {
-        this.carrito.splice(i,1)
+        this.carrito.splice(i, 1);
+        break;
       }
     }
   }
+
   seleccionar(prod:{marca:string;descripcion:string;precio:number; codigo:number}){
     this.prod.marca = prod.marca;
     this.prod.descripcion = prod.descripcion;
@@ -73,7 +75,6 @@ export class ProductosComponent implements OnInit {
     this.prod.codigo = prod.codigo;
 
     this.carrito.push(prod);
-
 
   }
 
